@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Simple webapp in Flask</title>
+<body style="background: {{ color }};"></body>
+<div style="color: #ffffff;
+    text-align:  center;
+    height: 90px;
+    vertical-align:  middle;">
+  <h1>webapp-flask-bgcolor</h1>
+{% if name %}
+  <h2>Hello from container with id: {{ name }}!</h2>
+{% else %}
+  <h2>Hello, World!</h2>
+{% endif %}
+
+  {% if contents %}
+  <textarea rows="10" cols="50">
+    {{ contents }}
+  </textarea>
+  {% endif %}
+
+</div>
