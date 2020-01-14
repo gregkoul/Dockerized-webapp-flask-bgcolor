@@ -23,19 +23,19 @@ Note 2: Command line argument precedes over environment variable.
 2. Now you have to build the Docker Image locally.
 ```bash
     -$ cd ~/MyProjects/Dockerized-webapp-flask-bgcolor
-    -$ docker build . -t webapp-flask-bgcolor:1.0
+    -$ docker build . -t gregkoul/webapp-flask-bgcolor:1.0
 ```
 3. Now you have to spin up as many containers you want in different ports.
 
 Blue color with environmental variable:
 ```bash
-    -$ docker run -p 8000:8000 -e APP_COLOR=blue webapp-flask-bgcolor:1.0
+    -$ docker run -p 8000:8000 -e APP_COLOR=blue gregkoul/webapp-flask-bgcolor:1.0
 ```
 Navy color with command line argument:
 ```bash
-    -$ docker run -p 8001:8000 webapp-flask-bgcolor:1.0 --color=navy
+    -$ docker run -p 8001:8000 gregkoul/webapp-flask-bgcolor:1.0 --color=navy
 ```
 Random color without any command line argument nor environmental variable.
 ```bash
-    -$ docker run -p 8002:8000 webapp-flask-bgcolor:1.0
+    -$ docker run -p 8002:8000 gregkoul/webapp-flask-bgcolor:1.0
 ```
