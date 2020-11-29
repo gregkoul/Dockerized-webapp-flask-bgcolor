@@ -38,17 +38,17 @@ Note 3: Command line argument precedes over environment variable.
 ```
 3. Now you have to spin up as many containers you want in different ports.
 
-Blue color with environmental variable and the static title:
+Random color and Static title without any command line argument nor environmental variable.
+```bash
+    -$ docker run -p 8002:8000 gregkoul/webapp-flask-bgcolor:2.0
+```
+Blue color with environmental variable and the Static title:
 ```bash
     -$ docker run -p 8000:8000 -e APP_COLOR=blue gregkoul/webapp-flask-bgcolor:2.0
 ```
 Navy color with command line argument and the static title:
 ```bash
     -$ docker run -p 8001:8000 gregkoul/webapp-flask-bgcolor:2.0 --color=navy
-```
-Static title and random color without any command line argument nor environmental variable.
-```bash
-    -$ docker run -p 8002:8000 gregkoul/webapp-flask-bgcolor:2.0
 ```
 Red color and Dynamic title with environmental variables:
 ```bash
