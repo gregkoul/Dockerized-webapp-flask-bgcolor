@@ -21,12 +21,15 @@ SUPPORTED_COLORS = ",".join(color_codes.keys())
 COLOR_FROM_ENV = os.environ.get('APP_COLOR')
 # Generate a random color
 COLOR = random.choice(["red", "green", "blue", "olive", "purple", "navy"])
-
+# Get dynamic title from Environment variable
+TITLE_FROM_ENV = os.environ.get('APP_TITLE')
+# Set default title
+TITLE = "Cloud Computing - University of West Attica"
 
 @app.route("/")
 def main():
     # return 'Hello'
-    return render_template('index.html', name=socket.gethostname(), color=color_codes[COLOR])
+    return render_template('index.html', name=socket.gethostname(), color=color_codes[COLOR], colorname=COLOR, title=TITLE)
 
 
 if __name__ == "__main__":
@@ -47,6 +50,8 @@ if __name__ == "__main__":
     # Check for Command Line Parameters for color
     parser = argparse.ArgumentParser()
     parser.add_argument('--color', required=False)
+    # Check for Command Line Parameters for title
+    parser.add_argument('--title', required=False)
     args = parser.parse_args()
 
     if args.color:
@@ -64,6 +69,18 @@ if __name__ == "__main__":
     if COLOR not in color_codes:
         print("Color not supported. Received '" + COLOR + "' expected one of " + SUPPORTED_COLORS)
         exit(1)
+
+    if args.title:
+        print("Title from command line argument =" + args.title)
+        TITLE = args.title
+        if TITLE_FROM_ENV:
+            print("A title was set through environment variable -" + TITLE_FROM_ENV + ". However, title from command line argument takes precendence.")
+    elif TITLE_FROM_ENV:
+        print("No Command line argument. Title from environment variable =" + TITLE_FROM_ENV)
+        TITLE = TITLE_FROM_ENV
+    else:
+        print("No command line argument or environment variable. Picking a default title =" + TITLE)
+
 
     # Run Flask Application
     app.run(host="0.0.0.0", port=8000)

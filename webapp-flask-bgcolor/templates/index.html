@@ -1,13 +1,14 @@
 <!doctype html>
-<title>Simple webapp in Flask</title>
+<title>{{ title }}</title>
 <body style="background: {{ color }};"></body>
 <div style="color: #ffffff;
     text-align:  center;
     height: 90px;
     vertical-align:  middle;">
-  <h1>webapp-flask-bgcolor</h1>
+	<h1>{{ title }}</h1>
+	<h2>A simple webapp in Flask framework</h2>
 {% if name %}
-  <h2>Hello from container with id: {{ name }}!</h2>
+<h2>Hello from {{ colorname }} container with id: {{ name }}!</h2>
 {% else %}
   <h2>Hello, World!</h2>
 {% endif %}
