@@ -52,7 +52,7 @@ Navy color with command line argument and the static title:
 ```
 Red color and Dynamic title with environmental variables:
 ```bash
-    -$ docker run -p 8003:8000 -e APP_COLOR=red -e APP_COLOR="Test Title" gregkoul/webapp-flask-bgcolor:2.0
+    -$ docker run -p 8003:8000 -e APP_COLOR=red -e APP_TITLE="Test Title" gregkoul/webapp-flask-bgcolor:2.0
 ```
 Olive color and Dynamic title with command line arguments:
 ```bash
